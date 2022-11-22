@@ -4,9 +4,11 @@ Number.prototype.isPrime = function(){
     }
     return true
 }
+// A: u can make it shorter. just `return this % 2 == 0  😉
 Number.prototype.isEven = function() {
     return this%2==0 ? true : false
 }
+// just same as Line7. 
 Number.prototype.isInfinty = function() {
     return this==Infinity ? true : false
 }
