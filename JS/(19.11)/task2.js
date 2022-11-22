@@ -1,6 +1,7 @@
 Object.prototype.objLength = function(){
     let length = 0
     for(key in this)
+        // A: no need to check. for in only takes fields
     if(this.hasOwnProperty(key)) length++
     return length
 }
