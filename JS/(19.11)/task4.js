@@ -1,5 +1,5 @@
 String.prototype.toCapitalize = function (){
-    return this[0].toUpperCase() + this.slice(1, this.lengh)
+    return this[0].toUpperCase() + this.slice(1, this.length)
 }
 String.prototype.removeWhiteSpaces = function() {
     return this.replace(" ", "")
