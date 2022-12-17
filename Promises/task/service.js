@@ -1,15 +1,3 @@
-// 1. buyProduct(id: [1,23,45,67,84]) // bu id-li product-lari ordan silmelidir. ve, yekun price-i bize qaytarmalidir. 
-
-// 2. getProduct(id) // melumat getirmelidir. Mehsulu almir, sadece melumat xarakterlidir. 
-
-// 3. getProduct(type)  // shireleri falan category uzre
-
-// 4. editProduct (product)  // edit-lemek
-
-// 5. deleteProduct(id) // xarab olmus mehsul
-
-// 6. addProduct(product) // mehsul elave etmek.
-
 const productServiceDB = {
     getProductId: (_id) => db.product.find(({id}) => id === _id),
     getProductType: (_type) => db.product.filter(({type}) => _type === type),
