@@ -1,0 +1,16 @@
+{
+  "name": "zoo-node",
+  "version": "1.0.0",
+  "description": "This is ZooNode app by ALion🦁",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "ALion GreenHeart",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
