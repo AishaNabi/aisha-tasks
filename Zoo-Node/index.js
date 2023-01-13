@@ -4,20 +4,14 @@ import { createHtmlFile } from "./utils/index.js"
 import url from 'url'
 import { getAnimals } from './utils/api.js'
 
-// async function createHtmlFiles() {
-    const animalsData = await getAnimals()
-    animalsData.forEach((animalName) =>{
-        writeFile(`pages/${animalName.animal}.html`, createHtmlFile(animalName), (err) =>{
-            if(err){
-                console.log("Error")
-                // console.log('----------------')
-                // console.log(err.data)
-            }
-        })
+const animalsData = await getAnimals()
+animalsData.forEach((animalName) => {
+    writeFile(`pages/${animalName.animal}.html`, createHtmlFile(animalName), (err) => {
+        if (err) {
+            console.log(err)
+        }
     })
-// }
-// createHtmlFiles()
-
+})
 
 function checkHtml(name) {
     return name.endsWith(".html")
