@@ -1,0 +1,1 @@
+export const Api_animals_url = `http://localhost:3030/animalsData`

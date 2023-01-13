@@ -1,25 +1,41 @@
 import { createServer } from 'http'
-import { readFileSync, readFile } from "fs"
-import { parse } from 'url'
+import { readFileSync, readFile, writeFile } from "fs"
+import { createHtmlFile } from "./utils/index.js"
+import url from 'url'
+import { getAnimals } from './utils/api.js'
+
+// async function createHtmlFiles() {
+    const animalsData = await getAnimals()
+    animalsData.forEach((animalName) =>{
+        writeFile(`pages/${animalName.animal}.html`, createHtmlFile(animalName), (err) =>{
+            if(err){
+                console.log("Error")
+                // console.log('----------------')
+                // console.log(err.data)
+            }
+        })
+    })
+// }
+// createHtmlFiles()
+
 
 function checkHtml(name) {
     return name.endsWith(".html")
 }
 
 const server = createServer((req, res) => {
-    const pageName = parse(req.url).pathname
+    const pageName = url.parse(req.url).pathname
     let fileName = `pages${pageName}`
     if (pageName === "/") fileName = `pages/home.html`
     if (!checkHtml(fileName)) fileName += ".html"
     const navbar = readFileSync(`pages/navbar.html`, "utf-8")
     res.write(`<div>${navbar}`)
     if (pageName !== '/favicon.ico') {
-        readFile(fileName, "utf-8", (err, htmlFile) => {
+        readFile(fileName, (err, data) => {
             if (err) {
-                const page = readFileSync(`pages/not_found.html`, "utf-8")
-                res.end(page + '</div>')
-            }
-            res.end(htmlFile)
+                console.log('pages/index.html')
+            } else
+                res.end(data + '</div>')
         })
     }
 })
