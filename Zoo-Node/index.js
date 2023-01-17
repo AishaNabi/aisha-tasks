@@ -22,14 +22,18 @@ const server = createServer((req, res) => {
     let fileName = `pages${pageName}`
     if (pageName === "/") fileName = `pages/home.html`
     if (!checkHtml(fileName)) fileName += ".html"
-    const navbar = readFileSync(`pages/navbar.html`, "utf-8")
-    res.write(`<div>${navbar}`)
     if (pageName !== '/favicon.ico') {
         readFile(fileName, (err, data) => {
             if (err) {
                 console.log('pages/index.html')
             } else
                 res.end(data + '</div>')
+        })
+    }
+    if (pageName !== '/favicon.ico') {
+        readFile(`pages/background.png`, (err, buf) => {
+            if (err) console.log(err)
+            res.end(buf)
         })
     }
 })

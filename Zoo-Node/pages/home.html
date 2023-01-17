@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
     <title>Home</title>
 </head>
+
 <body>
-    <h1>Home page</h1>
+    <div class="background-image">
+        <div>
+            <nav>
+                <a href="/Home">Home</a>
+                <a href="/Ababil">Ababil</a>
+                <a href="/Ant">Ant</a>
+                <a href="/Dog">Dog</a>
+                <a href="/Lion">Lion</a>
+                <a href="/Zebra">Zebra</a>
+            </nav>
+        </div>
+        <h1>Home page</h1>
+    </div>
 </body>
+<style>
+    a {
+        display: flex;
+        float: left;
+        font-size: 18px;
+        margin-left: 7%;
+        margin-right: 6%;
+        margin-bottom: 10%;
+        padding-top: 20px;
+    }
+
+    h1 {
+        position: absolute;
+        top: 135px;
+        left: 40%;
+        font-size: 45px;
+    }
+
+    * {
+        color: #fff;
+        margin: 0px;
+        font-family: Arial;
+        font-weight: bold;
+    }
+
+    .background-image {
+        background-image: url(./background.png);
+        background-size: cover;
+        height: 100vh;
+    }
+</style>
+
 </html>
