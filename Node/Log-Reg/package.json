@@ -1,0 +1,20 @@
+{
+  "name": "log-reg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start_be": "nodemon ./src/index.js",
+    "start_db": "json-server --watch ./db/db.json --port 3050",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "inquirer": "^9.1.4",
+    "json-server": "^0.17.1"
+  }
+}
