@@ -1,3 +1,64 @@
 body {
-    background-color: gray;
+    font-family: 'Lucida Sans', sans-serif;
+    background: #D0D3D4;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #164f75;
+}
+
+form {
+    margin-top: 100px;
+}
+
+.book,
+.author {
+    border: #D0D3D4 1px solid;
+    border-bottom: #164f75 2px solid;
+    padding: 8px;
+    width: 250px;
+    margin-top: 12px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.file {
+    color: transparent;
+    background-color: #164f75;
+    font-size: 1em; 
+    border: #164f75 1px solid;
+    border-bottom: #164f75 2px solid;
+    border-radius: 5px;
+    margin-top: 12px ;
+    width: 145px;
+    
+}
+
+.file::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.file::before {
+    content: 'Select some files';
+    padding:  8px;
+    cursor: pointer;
+    text-shadow: 1px 1px white;
+}
+
+
+.btn  {
+    font-weight: 800;
+    font-size: 0.8em;
+    font-family: 'Lucida Sans', sans-serif;
+    color: #dde5e7;
+
+    width: 125px;
+    background: #164f75;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: #164f75 1px solid;
+    border-radius: 5px;
 }
