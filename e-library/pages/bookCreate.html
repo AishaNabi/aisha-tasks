@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="user/login">Login</a><br>
+        <a href="user/signup">Signup</a><br>
+        <a href="user/profile/:token">Profile</a><br>
+        <a href="/books">All Books</a><br>
+        <a href="/book-create/:token">Create Book</a><br>
+    </nav>
+    <div class="box">
+        <h3>Create a book</h3>
+        <form action="/createBook/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1bG5hekBnbS5jb20iLCJpYXQiOjE2Nzg3OTY1ODR9.xwyPm_l_26HHCKIoNs71WHAltyDDVcnaLoJ-1B5A0DQ" method="post" enctype="multipart/form-data">
+            <input placeholder="Book name" type="text" name="bookName" class="book"> <br>
+            <input placeholder="Author name" type="text" name="author" class="author"> <br>
+            <select name="categoryId">
+                <option value="640f40af77550ae43cf584ec">Classic</option>
+                <option value="640f40c477550ae43cf584ed">Drama</option>
+                <option value="640f40d677550ae43cf584ee">Romance</option>
+            </select><br>
+            <input type="file" name="bookFile" class="file"><br>
+            <button type="submit" class="btn">Add book!</button>
+        </form>
+    </div>
+</body>
+
+</html>
