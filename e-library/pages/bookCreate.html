@@ -5,30 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/signup.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Create Book</title>
 </head>
 
 <body>
     <nav>
-        <a href="user/login">Login</a><br>
-        <a href="user/signup">Signup</a><br>
-        <a href="user/profile/:token">Profile</a><br>
-        <a href="/books">All Books</a><br>
-        <a href="/book-create/:token">Create Book</a><br>
+        <div class="main">
+            <a href="/books" class="p">Books</a>
+            <a href="/blog" class="p">Blogs</a>
+        </div>
     </nav>
     <div class="box">
         <h3>Create a book</h3>
-        <form action="/createBook/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1bG5hekBnbS5jb20iLCJpYXQiOjE2Nzg3OTY1ODR9.xwyPm_l_26HHCKIoNs71WHAltyDDVcnaLoJ-1B5A0DQ" method="post" enctype="multipart/form-data">
-            <input placeholder="Book name" type="text" name="bookName" class="book"> <br>
-            <input placeholder="Author name" type="text" name="author" class="author"> <br>
-            <select name="categoryId">
+        <form
+            action="/createBook/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhbG9zX2dlbmNlbGlAZ21haWwuY29tIiwiaWF0IjoxNjc4OTc3MTA3fQ.p2x6Clp9OTRXFtlEanwoE5ZKwPIbHJDRTb8sArbsW1s"
+            method="post" enctype="multipart/form-data">
+            <input placeholder="Book name" type="text" name="bookName" class="form"> <br>
+            <input placeholder="Author name" type="text" name="author" class="form"> <br>
+            <select name="categoryId" class="form">
                 <option value="640f40af77550ae43cf584ec">Classic</option>
                 <option value="640f40c477550ae43cf584ed">Drama</option>
                 <option value="640f40d677550ae43cf584ee">Romance</option>
             </select><br>
             <input type="file" name="bookFile" class="file"><br>
-            <button type="submit" class="btn">Add book!</button>
+            <button type="submit" class="form">Add book!</button>
         </form>
     </div>
 </body>

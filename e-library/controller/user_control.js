@@ -49,11 +49,15 @@ export const logIn = async (req, res) => {
 export const profile = async (req, res) => {
     const user = await userModel.findOne({ email: req.userEmail })
     res.send(`
+    <body style="background-image:url('/bc_photo/16607919_2102.i518.009_sky_cloud_evening_illustration.jpg');background-size:cover;">
+    <div> <img style="object-fit:cover;width:200px;height:200px;border-radius:50%;" src="/photos/${user.photo}" alt="${user.username}"/>
     <h1>${user.username}</h1>
     <h1>${user.email}</h1>  
-    <img style="object-fit:cover;width:200px;height:200px;border-radius:50%;" src="/photos/${user.photo}" alt="${user.username}"/>
     <a href="/book-create/${req.params.token}">Create book</a>
+    <a href="/blog/create/${req.params.token}">Create blog</a>
+    </div></body>
     `)
+    res.end()
 }
 
 

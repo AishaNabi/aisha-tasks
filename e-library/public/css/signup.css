@@ -1,53 +1,21 @@
-.box {
-    background: white;
-    width: 280px;
-    border-radius: 13px;
-    margin: 0 auto 0 auto;
-    margin-top: 20px;
-    padding: 10px 0px 0px 0px;
-}
-
-body {
-    font-family: 'Lucida Sans', sans-serif;
-    background: #D0D3D4;
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.5em;
-    color: #164f75;
-}
-
 .file {
-    margin: 10px;
-}
-
-.name,
-.username,
-.surname,
-.job,
-.email,
-.password {
-    background-color: #D0D3D4;
-    border: #D0D3D4 1px solid;
-    border-bottom: #164f75 2px solid;
-    padding: 8px;
-    margin-top: 12px;
+    color: transparent;
+    background-color: #083858;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
 }
 
-.btn {
-    font-weight: 800;
-    font-size: 0.8em;
-    font-family: 'Lucida Sans', sans-serif;
-    color: #D0D3D4;
+.file::-webkit-file-upload-button {
+    visibility: hidden;
+}
 
-    width: 125px;
-    background: #164f75;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: #164f75 1px solid;
-    border-radius: 5px;
+.file::before {
+    content: 'Select for file';
+    padding: 10px 25px;
+    cursor: pointer;
+    text-shadow: 1px 1px white;
+    font-family: 'Ubuntu', sans-serif;
 }
