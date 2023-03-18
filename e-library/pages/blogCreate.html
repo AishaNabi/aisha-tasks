@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <title>Create Blog</title>
+</head>
+
+<body>
+    <nav>
+        <div class="main">
+            <a href="/books" class="p">Books</a>
+            <a href="/blog" class="p">Blogs</a>
+        </div>
+    </nav>
+    <div class="box">
+        <h3>Create a blog</h3>
+        <form
+            action="/blog/createBlog/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhbG9zX2dlbmNlbGlAZ21haWwuY29tIiwiaWF0IjoxNjc4OTQxMDA4fQ.tS58l0BUFxAb_Roqkp3t0cUGdBUbODN_J7mkDG4-_BQ"
+            method="post">
+            <input placeholder="Blog name" type="text" name="blogName" class="book"><br>
+            <textarea placeholder="Write description" name="description"></textarea><br>
+            <button type="submit" class="btn">Add blog!</button><br>
+        </form>
+    </div>
+</body>
+
+</html>
