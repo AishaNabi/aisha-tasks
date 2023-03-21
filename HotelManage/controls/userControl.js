@@ -1,6 +1,7 @@
 import userModel from '../models/user.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import { JWT_SECRET } from '../main.js'
 
 export const signUp = async (req, res) => {
     const { firstName, lastName, email, phoneNumber, password, role } = req.body
@@ -19,14 +20,14 @@ export const signUp = async (req, res) => {
 
 export const signIn = async (req, res) => {
     const { email, password } = req.body
-    const userExist = await userModel.findOne({email})
-    if(!userExist){
-        res.send({message: "User not found!"})
+    const userExist = await userModel.findOne({ email })
+    if (!userExist) {
+        res.send({ message: "User not found!" })
     }
     const isPassRight = await bcrypt.compare(password, userExist.password)
-    if(!isPassRight){
-        res.send({message: "Invalid credentials.."})
+    if (!isPassRight) {
+        res.send({ message: "Invalid credentials.." })
     }
-    const token = jwt.sign({email}, 'idk')
+    const token = jwt.sign({ email, role: userExist.role }, JWT_SECRET)
     res.send(token)
 }
