@@ -46,6 +46,6 @@ export const allRes = async (req, res) => {
 
 export const availableRes = async (req, res) => {
     const { roomNumber } = req.params
-    const newR = await roomModel.findByIdAndUpdate(roomNumber, { $set: { availability: false } }, { new: true })
+    const newR = await roomModel.findByIdAndUpdate(roomNumber, { $set: { availability: true } }, { new: true })
     res.send(newR)
 }
