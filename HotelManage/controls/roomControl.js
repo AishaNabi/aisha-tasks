@@ -2,6 +2,10 @@ import roomModel from '../models/room.js'
 
 export const createR = async (req, res) => {
     const { roomNumber, roomType, occupancy, price, availability, isActive } = req.body
+    const roomReserve = await roomModel.findOne({ roomNumber })
+    if(roomReserve){
+        res.send("Room already exist")
+    }
     const obj = await roomModel.create({
         roomNumber, roomType, occupancy, price, availability, isActive
     })
