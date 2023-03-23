@@ -17,6 +17,7 @@ export const reserve = async (req, res) => {
         } else {
             totalAmount = date * 100
         }
+        await roomModel.findByIdAndUpdate(roomNumber, { $set: { availability: false}}, { new: true })
         const newRes = await reserveModel.create({
             userId, roomNumber,
             checkInDate: inTime, checkOutDate: outTime,
@@ -34,7 +35,7 @@ export const cancelR = async (req, res) => {
     if (reserve.isActive === false) {
         res.send('It is already deactivated')
     }
-    const { _id, userId, isActive } = await reserveModel.findByIdAndUpdate(roomNumber, { $set: { isActive: false, totalAmount: 0 } }, { new: true })
+    const { _id, userId, isActive } = await reserveModel.findByIdAndUpdate(roomNumber, { $set: { isActive: false } }, { new: true })
     res.send({ _id, userId, isActive })
 }
 
