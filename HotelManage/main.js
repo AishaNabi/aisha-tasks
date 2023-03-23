@@ -18,7 +18,6 @@ app.use('/api', reserveRouter)
 
 
 
-
 app.listen(5050, ()=>{
     console.log("Server is up...")
 })
