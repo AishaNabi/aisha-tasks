@@ -4,8 +4,8 @@ import roomModel from '../models/room.js'
 export const reserve = async (req, res) => {
     const { userId, roomNumber, checkInDate, checkOutDate, isActive } = req.body
     const roomReserve = await roomModel.findOne({ roomNumber })
-    if (roomReserve) {
-        res.send("Room already reserved")
+    if (!roomReserve.availability) {
+        return res.send("Room already reserved")
     }
     const inTime = new Date(checkInDate)
     const outTime = new Date(checkOutDate)
@@ -17,7 +17,7 @@ export const reserve = async (req, res) => {
         } else {
             totalAmount = date * 100
         }
-        await roomModel.findByIdAndUpdate(roomNumber, { $set: { availability: false}}, { new: true })
+        await roomModel.findOneAndUpdate({roomNumber}, { $set: { availability: false}})
         const newRes = await reserveModel.create({
             userId, roomNumber,
             checkInDate: inTime, checkOutDate: outTime,
@@ -31,11 +31,11 @@ export const reserve = async (req, res) => {
 
 export const cancelR = async (req, res) => {
     const { roomNumber } = req.params
-    const reserve = await reserveModel.findById(roomNumber)
+    const reserve = await reserveModel.findOne({roomNumber})
     if (reserve.isActive === false) {
         res.send('It is already deactivated')
     }
-    const { _id, userId, isActive } = await reserveModel.findByIdAndUpdate(roomNumber, { $set: { isActive: false } }, { new: true })
+    const { _id, userId, isActive } = await reserveModel.findOneAndUpdate(roomNumber, { $set: { isActive: false } }, { new: true })
     res.send({ _id, userId, isActive })
 }
 
@@ -46,6 +46,6 @@ export const allRes = async (req, res) => {
 
 export const availableRes = async (req, res) => {
     const { roomNumber } = req.params
-    const newR = await roomModel.findByIdAndUpdate(roomNumber, { $set: { availability: true } }, { new: true })
+    const newR = await roomModel.findOneAndUpdate({roomNumber}, { $set: { availability: true } }, { new: true })
     res.send(newR)
 }
