@@ -1,9 +1,11 @@
 import roomModel from '../models/room.js'
-import userModel from '../models/user.js'
 
 export const createR = async (req, res) => {
-    const user = await userModel.findOne({ email: req.userEmail })
     const { roomNumber, roomType, occupancy, price, availability, isActive } = req.body
+    const roomReserve = await roomModel.findOne({ roomNumber })
+    if(roomReserve){
+        res.send("Room already exist")
+    }
     const obj = await roomModel.create({
         roomNumber, roomType, occupancy, price, availability, isActive
     })
@@ -11,7 +13,6 @@ export const createR = async (req, res) => {
 }
 
 export const updateR = async (req, res) => {
-    const user = await userModel.findOne({ email: req.userEmail })
     const { id } = req.params
     const $set = req.body
     const newR = await roomModel.findByIdAndUpdate(id, { $set }, { new: true })
@@ -20,9 +21,13 @@ export const updateR = async (req, res) => {
 
 export const deleteR = async (req, res) => {
     const { id } = req.params
-    // const { isActive } = req.body
-    const newR = await roomModel.findByIdAndUpdate(id, { $set: {isActive:false} }, { new: true })
-    res.send(newR)
+    const room = await roomModel.findById(id)
+    if(room.isActive === false){
+        res.send('It is already deactivated')
+    }else{
+        const newR = await roomModel.findByIdAndUpdate(id, { $set: {isActive:false} }, { new: true })
+        res.send(newR)
+    }
 }
 
 export const allR = async (req, res) => {
